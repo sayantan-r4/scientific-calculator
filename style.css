@@ -1,0 +1,171 @@
+/* --- General Body & Font Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+}
+
+/* --- Main Layout Containers --- */
+#toggleAdvanced {
+    width: 200px; /* Example width, adjust as needed */
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+.panel-container {
+    display: flex;
+    align-items: flex-start; /* Align tops of panels */
+}
+
+.calculator {
+    border: 1px solid #717377;
+    padding: 20px;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+}
+
+/* --- Input Display Box --- */
+input {
+    width: 100%;
+    border: none;
+    padding: 24px;
+    margin-bottom: 10px;
+    background: rgba(40, 40, 40, 0.75);
+    box-shadow: inset 0px 0px 15px rgba(84, 84, 84, 0.4);
+    font-size: 40px;
+    text-align: right;
+    cursor: text;
+    color: #ffffff;
+    border-radius: 10px;
+    overflow-x: auto; /* Allow scrolling for long numbers */
+}
+
+input::placeholder {
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+/* --- General Button Styling --- */
+button {
+    border: none;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border-radius: 50%; /* Circular buttons */
+    background: #313131;
+    color: #ffffff;
+    font-size: 20px;
+    box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.05),
+                4px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+    background: #3a3a3a;
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.05),
+                2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Specific Button Colors --- */
+.operator {
+    background-color: #ff9500; /* Orange for operators */
+    color: #ffffff;
+}
+.operator:hover { background: #e08300; }
+
+.equalbtn {
+    background-color: #2ec4b6; /* Teal for equals */
+    color: #ffffff;
+}
+.equalbtn:hover { background: #28a99d; }
+
+/* Placeholder for empty spots in the grid */
+.empty {
+    background: transparent;
+    box-shadow: none;
+    cursor: default;
+}
+
+/* --- Advanced Panel Styling --- */
+.advanced-keys {
+    padding: 15px 10px;
+    margin-left: 15px;
+    border: 1px solid #717377;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    
+    /* For smooth slide-in/out transition */
+    overflow: hidden;
+    max-width: 200px; /* Set max-width for transition */
+    opacity: 1;
+    transition: max-width 0.5s ease-in-out, opacity 0.3s ease-in-out, margin-left 0.5s, padding 0.5s;
+}
+
+.advanced-keys.hidden {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+    padding: 15px 0; /* Prevents text from overflowing during transition */
+    border: none;
+}
+
+.advanced-keys button {
+    width: 70px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #505050;
+}
+.advanced-keys button:hover { background: #6a6a6a; }
+
+/* Style for Deg/Rad toggle */
+#degRadToggle {
+    background-color: #d81159;
+}
+#degRadToggle:hover { background: #b80f4c; }
+
+/* --- Responsiveness for Mobile Devices --- */
+@media (max-width: 600px) {
+    .panel-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .advanced-keys {
+        margin-left: 0;
+        margin-top: 20px;
+        grid-template-columns: repeat(4, 1fr); /* Adjust grid for horizontal layout */
+        max-width: 100%; /* Allow it to take full width */
+    }
+
+    .advanced-keys.hidden {
+        max-width: 100%; /* Override max-width for vertical transition */
+        max-height: 0;
+        padding: 0 10px;
+        margin-top: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease-in-out, opacity 0.3s, margin-top 0.5s;
+    }
+}
