@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="toggleAdvanced" class="operator">Adv</button>
+    <div class="panel-container">
+        <div class="calculator" id="mainPanel">
+            <input type="text" id="inputBox" placeholder="0" readonly>
+            
+            <div>
+                <button class="operator">C</button>
+                <button class="operator">DEL</button>
+                <button class="empty"></button> <button class="operator">/</button>
+            </div>
+            <div>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button class="operator">x</button>
+            </div>
+            <div>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button class="operator">-</button>
+            </div>
+            <div>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button class="operator">+</button>
+            </div>
+            <div>
+                <button>00</button>
+                <button>0</button>
+                <button>.</button>
+                <button class="equalbtn">=</button>
+            </div>
+            <div>
+                <button>(</button>
+                <button>)</button>
+                <button>,</button>
+                <button class="empty"></button>
+            </div>
+        </div>
+
+        <div id="advancedPanel" class="advanced-keys hidden">
+            <button>sin(</button>
+            <button>cos(</button>
+            <button>tan(</button>
+            <button>asin(</button>
+            <button>acos(</button>
+            <button>atan(</button>
+            <button>log(</button>
+            <button>ln(</button>
+            <button>√(</button>
+            <button>^</button>
+            <button>!</button>
+            <button>%</button>
+            <button>nCr(</button>
+            <button>nPr(</button>
+            <button>gamma(</button>
+            <button>beta(</button>
+            <button>π</button>
+            <button>e</button>
+            <button id="degRadToggle">Deg</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.0.0/math.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
